@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e8a96a"/>
+      <stop offset="100%" stop-color="#c47d3a"/>
+    </linearGradient>
+    <linearGradient id="dimGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8a7a6a"/>
+      <stop offset="100%" stop-color="#5a5248"/>
+    </linearGradient>
+    <linearGradient id="faceTop" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f0c896"/>
+      <stop offset="100%" stop-color="#d9975a"/>
+    </linearGradient>
+    <linearGradient id="faceLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#b87d45"/>
+      <stop offset="100%" stop-color="#8a5e30"/>
+    </linearGradient>
+    <linearGradient id="faceRight" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d9975a"/>
+      <stop offset="100%" stop-color="#a06835"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="248" fill="#1a1a18" stroke="#2a2a26" stroke-width="2"/>
+
+  <!-- 2D Image frame (left side) - representing the input image -->
+  <g opacity="0.9">
+    <!-- Frame border -->
+    <rect x="88" y="176" width="130" height="160" rx="6" fill="none" stroke="url(#dimGrad)" stroke-width="3.5"/>
+    <!-- Mountain/landscape icon inside frame -->
+    <path d="M104 300 L130 260 L148 280 L168 244 L196 300 Z" fill="none" stroke="#6b6963" stroke-width="2.5" stroke-linejoin="round"/>
+    <!-- Sun dot -->
+    <circle cx="120" cy="210" r="10" fill="none" stroke="#6b6963" stroke-width="2.5"/>
+    <!-- Scan lines suggesting digitization -->
+    <line x1="92" y1="200" x2="214" y2="200" stroke="#3a3a36" stroke-width="1" stroke-dasharray="4 6"/>
+    <line x1="92" y1="230" x2="214" y2="230" stroke="#3a3a36" stroke-width="1" stroke-dasharray="4 6"/>
+    <line x1="92" y1="260" x2="214" y2="260" stroke="#3a3a36" stroke-width="1" stroke-dasharray="4 6"/>
+    <line x1="92" y1="290" x2="214" y2="290" stroke="#3a3a36" stroke-width="1" stroke-dasharray="4 6"/>
+  </g>
+
+  <!-- Arrow / transformation flow (center) -->
+  <g filter="url(#glow)">
+    <path d="M228 256 L258 256" stroke="url(#accentGrad)" stroke-width="3" stroke-linecap="round"/>
+    <path d="M250 246 L262 256 L250 266" fill="none" stroke="url(#accentGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Particle dots suggesting transformation -->
+    <circle cx="236" cy="242" r="2" fill="#d9975a" opacity="0.6"/>
+    <circle cx="244" cy="270" r="1.5" fill="#d9975a" opacity="0.4"/>
+    <circle cx="252" cy="238" r="1.5" fill="#d9975a" opacity="0.5"/>
+  </g>
+
+  <!-- 3D Isometric Cube (right side) - representing the Three.js output -->
+  <g>
+    <!-- Top face -->
+    <path d="M340 180 L400 214 L340 248 L280 214 Z" fill="url(#faceTop)" opacity="0.95"/>
+    <!-- Left face -->
+    <path d="M280 214 L340 248 L340 320 L280 286 Z" fill="url(#faceLeft)" opacity="0.95"/>
+    <!-- Right face -->
+    <path d="M400 214 L340 248 L340 320 L400 286 Z" fill="url(#faceRight)" opacity="0.95"/>
+
+    <!-- Wireframe edges (bright) -->
+    <path d="M340 180 L400 214 L400 286 L340 320 L280 286 L280 214 Z" fill="none" stroke="#f0efe9" stroke-width="1.5" opacity="0.3"/>
+    <path d="M340 180 L340 248 M280 214 L340 248 L400 214 M340 248 L340 320" fill="none" stroke="#f0efe9" stroke-width="1" opacity="0.2"/>
+
+    <!-- Vertex dots -->
+    <circle cx="340" cy="180" r="4" fill="#f0c896"/>
+    <circle cx="400" cy="214" r="3.5" fill="#d9975a"/>
+    <circle cx="280" cy="214" r="3.5" fill="#d9975a"/>
+    <circle cx="340" cy="320" r="3.5" fill="#a06835"/>
+    <circle cx="400" cy="286" r="3" fill="#b87d45"/>
+    <circle cx="280" cy="286" r="3" fill="#b87d45"/>
+    <circle cx="340" cy="248" r="3" fill="#e8a96a" opacity="0.8"/>
+  </g>
+
+  <!-- Code brackets hint (bottom) -->
+  <g opacity="0.7">
+    <path d="M310 356 L298 368 L310 380" fill="none" stroke="url(#accentGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M370 356 L382 368 L370 380" fill="none" stroke="url(#accentGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="330" y1="352" x2="350" y2="384" stroke="#6b6963" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Orbital ring around cube -->
+  <ellipse cx="340" cy="250" rx="90" ry="30" fill="none" stroke="url(#accentGrad)" stroke-width="1.2" opacity="0.25" stroke-dasharray="6 4" transform="rotate(-15 340 250)"/>
+</svg>
